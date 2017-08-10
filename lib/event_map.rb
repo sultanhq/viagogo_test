@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 class EventMap < Sinatra::Base
   get '/' do
-    'Hello EventMap!'
+    erb :index
   end
 
   # start the server if ruby file executed directly
