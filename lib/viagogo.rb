@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-class EventMap < Sinatra::Base
+class Viagogo < Sinatra::Base
   get '/' do
     erb :index
   end
