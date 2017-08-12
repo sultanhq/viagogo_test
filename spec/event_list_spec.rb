@@ -21,13 +21,21 @@ describe Event_List do
             event_list.store_event(event)
             event_list.store_event(event_2)
             event_list.store_event(event_3)
-            event_list.events.each{ |e| p e.id} 
             expect(event_list.number_of_events).to eq 3
         end
 
         it 'Event should have id once stored' do
             event_list.store_event(event)
             expect(event_list.events.first.id).to eq 1
+        end
+
+        it "Events get unique id's once stored" do
+            event_list.store_event(event)
+            event_list.store_event(event_2)
+            event_list.store_event(event_3)
+            event_list.events.each_with_index { |elem, index|
+                expect(elem.id).to eq index + 1
+            }
         end
     end
 
