@@ -3,6 +3,7 @@ require 'location'
 
 describe Location do
     let(:event) { double("event", :id= => nil, :id => 1, :name => "Ed Sheeran - Live", :price => 10, :tickets_available => 1000) }
+    let(:event_2) { double("event", :id= => nil, :id => 2, :name => "Foo Fighters", :price => 20, :tickets_available => 2000) }
 
     subject (:location) { described_class.new(:capacity => 1) }
 
@@ -24,10 +25,18 @@ describe Location do
             expect(location.list_events).to eq [event]
         end
 
-        it 'should not be able to store an event when at capacity' do
+        it 'should not be able to store the same event twice' do
+            location.add_event(event)
+            error_text = "This event already exists at this location"
+            expect{location.add_event(event)}.to raise_error(error_text)
+        end
+
+        it 'should not be able to store an event when at already at capacity' do
             location.add_event(event)
             error_text = "Location requires capacity to be 0 or greater"
-            expect{location.add_event(event)}.to raise_error(error_text)
+            expect{
+                location.add_event(event_2)
+            }.to raise_error(error_text)
         end
 
     end

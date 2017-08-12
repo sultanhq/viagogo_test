@@ -9,11 +9,10 @@ class Location
     end
 
     def add_event(event)
-        if (check_if_space_available)
-            store_event(event)
-        else
-            error_text = "Location requires capacity to be 0 or greater"
-            raise (error_text)
+        begin
+            store_event(event) if check_event_can_be_stored?(event)
+        rescue Exception => e
+            raise e.message
         end
     end
 
@@ -27,8 +26,27 @@ class Location
         @events << event
     end
 
-    def check_if_space_available
-        @events.size < @capacity
+    def check_event_can_be_stored?(event)
+        check_event_not_duplicate?(event)
+        check_if_space_available?
+    end
+
+    def check_event_not_duplicate?(event)
+        if @events.include?(event)
+            error_text = "This event already exists at this location"
+            raise (error_text)
+        else
+            true
+        end
+    end
+
+    def check_if_space_available?
+        if @events.size < @capacity
+            true
+        else
+            error_text = "Location requires capacity to be 0 or greater"
+            raise (error_text)
+        end
     end
 
     def validate_arguments(params)
