@@ -6,6 +6,7 @@ describe Location do
     let(:event_2) { double("event", :id= => nil, :id => 2, :name => "Foo Fighters", :price => 20, :tickets_available => 2000) }
 
     subject (:location) { described_class.new(:capacity => 1) }
+    subject (:location_2) { described_class.new(:capacity => 2) }
 
     context 'details' do
         it 'should be able to return its capacity' do
@@ -25,10 +26,16 @@ describe Location do
             expect(location.list_events).to eq [event]
         end
 
+        it 'should be able to store multiple events' do
+            location_2.add_event(event)
+            location_2.add_event(event_2)
+            expect(location_2.list_events).to eq [event, event_2]
+        end
+
         it 'should not be able to store the same event twice' do
-            location.add_event(event)
+            location_2.add_event(event)
             error_text = "This event already exists at this location"
-            expect{location.add_event(event)}.to raise_error(error_text)
+            expect{location_2.add_event(event)}.to raise_error(error_text)
         end
 
         it 'should not be able to store an event when at already at capacity' do

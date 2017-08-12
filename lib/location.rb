@@ -27,8 +27,8 @@ class Location
     end
 
     def check_event_can_be_stored?(event)
-        check_event_not_duplicate?(event)
         check_if_space_available?
+        check_event_not_duplicate?(event)
     end
 
     def check_event_not_duplicate?(event)
