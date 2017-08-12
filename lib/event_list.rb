@@ -1,4 +1,7 @@
 class Event_List
+
+    attr_reader :events
+
     def initialize()
         @events = []
     end

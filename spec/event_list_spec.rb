@@ -14,7 +14,11 @@ describe Event_List do
             event_list.store_event(event)
             expect(event_list.number_of_events).to eq 1
         end
-    end
 
+        it 'Event should have id once stored' do
+            event_list.store_event(event)
+            expect(event_list.events.first.id).to eq 1
+        end
+    end
 
 end
