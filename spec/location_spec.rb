@@ -2,6 +2,7 @@ require 'spec_helper'
 require 'location'
 
 describe Location do
+    let(:event) { double("event", :id= => nil, :id => 1, :name => "Ed Sheeran - Live", :price => 10, :tickets_available => 1000) }
 
     subject (:location) { described_class.new(:capacity => 1) }
 
@@ -15,5 +16,20 @@ describe Location do
                 described_class.new(:capacity => -1)
             }.to raise_error(error_text)
         end
+
     end
+    context 'events' do
+        it 'should be able to store an event' do
+            location.add_event(event)
+            expect(location.list_events).to eq [event]
+        end
+
+        it 'should not be able to store an event when at capacity' do
+            location.add_event(event)
+            error_text = "Location requires capacity to be 0 or greater"
+            expect{location.add_event(event)}.to raise_error(error_text)
+        end
+
+    end
+
 end
