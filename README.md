@@ -24,8 +24,8 @@ def create_grid(3, location_object)
     grid = {}
     range = (0 - world_range)..world_range
     range.each do |ele|
-        range.each do |num|
-            grid[[num, ele]] = location_object
+        range.each do |num|
+            grid[[num, ele]] = location_object
         end
     end
 end
@@ -36,6 +36,14 @@ Grid references for reference:
 
 I lastly got stuck when I had to find an algorithm to search through a list of objects which had grid references in a spiral search pattern, this was extremely difficult and from there it took a lot of time to try to find a
 which I was not able to do so, therefore, I decided to write some pseudocode to explain my thinking.
+
+## Instructions
+
+Clone this repo and navigate to directory then run `$ bundle install`
+
+App is not yet complete so running `$ ruby vuagogo.rb` will not will not return the expected result.
+
+Tests can be run by running `$ rspec'
 
 ## Summary
 
