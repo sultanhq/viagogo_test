@@ -41,6 +41,7 @@ which I was not able to do so, therefore, I decided to write some pseudocode to 
 
 While I feel that I have created most of the aspects required for the requirements, I feel that not being able to create the final searching of the locations disappointing, I have however added a small amount of pseudocode to the map object (in the private functions) which allows for some explanation of where I was planning to go with my code.
 
+I also have realised (at the 11th hour) that I could refactor the program to not create every event location without an event object, but only create a 'venue' with a location(grid reference) and its event(s) which will make the program much more efficient and would allow returning what events base on their location far easier.
 
 Another assumption I had made about the app which I was not able to implement due to the point which I was stuck was:
 * That a user could possibly input a coordinate that was out of range of the current world in the app, I would mitigate this issue by giving the user a warning to tell them that they have inputted a location outside of the locations searchable.
