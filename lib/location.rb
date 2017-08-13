@@ -44,7 +44,7 @@ class Location
         if @events.size < @capacity
             true
         else
-            error_text = "Location requires capacity to be 0 or greater"
+            error_text = "Location is already at capacity"
             raise (error_text)
         end
     end

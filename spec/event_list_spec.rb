@@ -37,6 +37,10 @@ describe Event_List do
                 expect(elem.id).to eq index + 1
             }
         end
+
+        it 'should be able to create 12 events' do
+            
+        end
     end
 
 end

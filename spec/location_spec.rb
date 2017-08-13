@@ -40,7 +40,7 @@ describe Location do
 
         it 'should not be able to store an event when at already at capacity' do
             location.add_event(event)
-            error_text = "Location requires capacity to be 0 or greater"
+            error_text = "Location is already at capacity"
             expect{
                 location.add_event(event_2)
             }.to raise_error(error_text)
