@@ -36,9 +36,4 @@ describe Map do
             expect(map.number_of_events).to eq 10
         end
     end
-    context 'random' do
-        it 'map creates random locations' do
-
-        end
-    end
 end

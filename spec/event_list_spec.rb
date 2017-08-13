@@ -38,9 +38,6 @@ describe Event_List do
             }
         end
 
-        it 'should be able to create 12 events' do
-            
-        end
     end
 
 end
