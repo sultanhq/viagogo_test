@@ -41,9 +41,10 @@ which I was not able to do so, therefore, I decided to write some pseudocode to 
 
 Clone this repo and navigate to directory then run `$ bundle install`
 
+Tests can be run by running `$ rspec`
+
 App is not yet complete so running `$ ruby vuagogo.rb` will not will not return the expected result.
 
-Tests can be run by running `$ rspec'
 
 ## Summary
 
