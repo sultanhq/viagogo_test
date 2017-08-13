@@ -20,7 +20,8 @@ At this point, I decided to change from an array of locations to a list of hashe
 I was particularly pleased with the lines of code I produced which allow me to take the range that the world should operate in, and create a list of hashes which contained the grid references starting with a negative in their top corner down to a positive in the bottom right corner as exampled below:
 
 ```ruby
-def create_grid(3, location_object)
+#example / pseudo code
+def create_grid(world_range, location_object)
     grid = {}
     range = (0 - world_range)..world_range
     range.each do |ele|
