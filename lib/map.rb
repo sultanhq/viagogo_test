@@ -1,3 +1,4 @@
+require 'location'
 class Map
   attr_reader :grid
 
@@ -6,9 +7,11 @@ class Map
     @event_list = event_list
     @grid = {}
     @world_range = world_range
-    range = 0 - world_range..world_range
+    range = (0 - world_range)..world_range
     range.each do |ele|
-      range.each { |num| @grid[[num, ele]] = location.new(:capacity => 1) }.each { |e| e }
+        range.each do |num|
+            grid[[num, ele]] = Location.new(:capacity => 1)
+        end
     end
     create_seed_locations(world_range)
     store_events_at_random_locations
@@ -41,7 +44,7 @@ class Map
   def print_distance_from_user(close_locations_with_events, user_location)
       #itterate over close_locations_with_events and return the distance
       #from user using manhattan distance calculation
-      #
+
   end
 
   def find_close_events(user_location)

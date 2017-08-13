@@ -22,7 +22,7 @@ describe Map do
     context 'details' do
         it 'should be able to return the maps size' do
             allow(location).to receive(:add_event).exactly(10).times
-            allow(location).to receive(:list_events).and_return (0)
+            allow(location).to receive(:list_events).and_return (1)
             allow(event_list).to receive(:number_of_events).and_return (10)
             grid_size = (grid_range*2+1)*(grid_range*2+1)
             expect(map.grid.size).to eq grid_size
